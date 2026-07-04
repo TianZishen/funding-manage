@@ -7,7 +7,8 @@ import re
 import threading
 import time
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, time as datetime_time
+from zoneinfo import ZoneInfo
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 import requests
@@ -21,6 +22,7 @@ CATALOG_URL = "https://fund.eastmoney.com/js/fundcode_search.js"
 ASSET_ALLOCATION_URL = "https://fundf10.eastmoney.com/zcpz_{code}.html"
 REPORT_LIST_URL = "https://api.fund.eastmoney.com/f10/JJGG"
 REPORT_PDF_URL = "https://pdf.dfcfw.com/pdf/H2_{report_id}_1.pdf"
+CHINA_TZ = ZoneInfo("Asia/Shanghai")
 SINA_QUOTE_URL = "https://hq.sinajs.cn/list={symbols}"
 
 
@@ -163,13 +165,31 @@ class FundDataService:
         item = self._ensure_fund(normalized)
         history = self.history(normalized)
         latest = history[-1]
+        previous = history[-2] if len(history) > 1 else None
+        latest_return = latest.daily_return_pct
+        if latest_return is None and previous and previous.unit_nav:
+            latest_return = (latest.unit_nav / previous.unit_nav - 1) * 100
         return {
             **item,
             "latest_nav": latest.unit_nav,
             "latest_nav_date": latest.nav_date.isoformat(),
-            "latest_daily_return_pct": latest.daily_return_pct,
+            "latest_daily_return_pct": latest_return,
+            "previous_nav": previous.unit_nav if previous else None,
+            "previous_nav_date": previous.nav_date.isoformat() if previous else None,
+            "display_mode": self.market_display_mode(),
             "history_count": len(history),
         }
+
+    @staticmethod
+    def market_display_mode(now: Optional[datetime] = None) -> str:
+        current = now or datetime.now(CHINA_TZ)
+        if current.tzinfo is None:
+            current = current.replace(tzinfo=CHINA_TZ)
+        else:
+            current = current.astimezone(CHINA_TZ)
+        is_weekday = current.weekday() < 5
+        is_intraday = datetime_time(9, 30) <= current.time() < datetime_time(15, 0)
+        return "intraday" if is_weekday and is_intraday else "official"
 
     @staticmethod
     def _compact_fund_name(name: str) -> str:

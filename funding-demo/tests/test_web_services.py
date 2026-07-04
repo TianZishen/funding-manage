@@ -413,6 +413,38 @@ class WebServiceTests(unittest.TestCase):
         self.assertEqual(result["equity_exposure"], 0.97)
         self.assertEqual(result["confidence"], "中")
 
+    def test_market_display_mode_uses_china_trading_window(self):
+        self.assertEqual(
+            self.service.market_display_mode(datetime(2026, 7, 6, 10, 0)),
+            "intraday",
+        )
+        self.assertEqual(
+            self.service.market_display_mode(datetime(2026, 7, 6, 15, 0)),
+            "official",
+        )
+        self.assertEqual(
+            self.service.market_display_mode(datetime(2026, 7, 5, 10, 0)),
+            "official",
+        )
+
+    def test_overview_includes_previous_official_nav(self):
+        self.service.fund_catalog = lambda: {
+            "000001": {"code": "000001", "name": "示例基金", "type": "股票型"}
+        }
+        self.service.history = lambda code: [
+            core.NavPoint(date(2026, 7, 2), 1.0, 0.5),
+            core.NavPoint(date(2026, 7, 3), 1.02, None),
+        ]
+        self.service.market_display_mode = lambda now=None: "official"
+
+        result = self.service.get_overview("000001")
+
+        self.assertEqual(result["latest_nav"], 1.02)
+        self.assertEqual(result["previous_nav"], 1.0)
+        self.assertEqual(result["previous_nav_date"], "2026-07-02")
+        self.assertAlmostEqual(result["latest_daily_return_pct"], 2.0)
+        self.assertEqual(result["display_mode"], "official")
+
     def test_index_and_health_exist(self):
         self.assertEqual(health()["status"], "ok")
         self.assertEqual(index().path.name, "index.html")
