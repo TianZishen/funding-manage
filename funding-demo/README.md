@@ -1,0 +1,70 @@
+# Funding Demo
+
+基金自选、历史净值与盘中估值原型。用户在浏览器输入服务器 IP 即可使用；当前没有账号系统，自选基金保存在各浏览器的 `localStorage`。
+
+## 已实现
+
+- 输入6位代码验证并添加基金。
+- 展示基金名称、类型、最新正式净值和历史净值曲线。
+- 获取最近一期公开股票持仓。
+- 获取 A 股和港股行情；港股估值同时考虑港币兑人民币变化。
+- 展示预测涨跌、预测净值、行情覆盖率、置信度和单只持仓贡献。
+- 手机、平板、PC 响应式布局。
+
+## Windows
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\run_web.ps1
+```
+
+访问 `http://127.0.0.1:8000`。同一局域网的手机可访问脚本打印出的局域网地址。
+
+## Linux 快速运行
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-venv
+cd /path/to/funding-demo
+bash run_web.sh
+```
+
+访问 `http://服务器IP:8000`，并在云服务器安全组或防火墙放行 TCP 8000。
+
+## systemd + Nginx
+
+建议将项目上传到 `/opt/funding-demo`：
+
+```bash
+sudo apt install -y python3 python3-venv nginx
+sudo useradd --system --home /opt/funding-demo --shell /usr/sbin/nologin funddemo || true
+sudo chown -R funddemo:funddemo /opt/funding-demo
+sudo -u funddemo python3 -m venv /opt/funding-demo/.venv
+sudo -u funddemo /opt/funding-demo/.venv/bin/python -m pip install -r /opt/funding-demo/requirements.txt
+sudo cp /opt/funding-demo/deploy/funding-demo.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now funding-demo
+sudo cp /opt/funding-demo/deploy/nginx-funding-demo.conf /etc/nginx/sites-available/funding-demo
+sudo ln -s /etc/nginx/sites-available/funding-demo /etc/nginx/sites-enabled/funding-demo
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+验证与排查：
+
+```bash
+curl http://127.0.0.1:8000/api/health
+sudo journalctl -u funding-demo -f
+```
+
+## 测试
+
+```bash
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+## 注意
+
+- Linux 服务器必须能访问东方财富和新浪财经；部分海外 IP 可能被限流。
+- 免费数据源不承诺稳定性，公开发布或商业化前需要重新确认数据授权。
+- 盘中估值基于滞后的公开持仓，不是基金公司正式净值，不构成投资建议。
