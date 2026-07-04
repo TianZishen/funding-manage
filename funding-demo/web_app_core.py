@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Dict
 
 import requests
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, Response
 
 from web_services import FundNotFoundError, service
@@ -69,12 +69,9 @@ def fund_history(code: str) -> Dict[str, Any]:
 
 
 @app.get("/api/funds/{code}/estimate")
-def fund_estimate(
-    code: str,
-    equity_exposure: float = Query(default=0.90, gt=0, le=1),
-) -> Dict[str, Any]:
+def fund_estimate(code: str) -> Dict[str, Any]:
     try:
-        return service.estimate(code, equity_exposure)
+        return service.estimate(code)
     except FundNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     except (requests.RequestException, ValueError) as exc:
