@@ -1,10 +1,13 @@
+import tempfile
 import unittest
 from datetime import date, datetime
+from pathlib import Path
 from unittest.mock import patch
 
 import fund_estimate_demo as demo_entry
 import fund_estimate_demo_core as core
 from web_app_core import health, index
+from portfolio_store import PortfolioNameExistsError, PortfolioStore
 from web_services import FundDataService, PositionDisclosure
 
 
@@ -39,6 +42,22 @@ class FakeSession:
 
 
 class WebServiceTests(unittest.TestCase):
+    def test_portfolio_store_persists_isolated_categories(self):
+        with tempfile.TemporaryDirectory() as directory:
+            store = PortfolioStore(Path(directory) / "portfolios.db")
+            empty = {"app": "funding-rader", "version": 2, "codes": [], "costs": {}, "transactions": {}}
+            mine = store.create("我的自选", empty)
+            other = store.create("他人的自选", {**empty, "codes": ["008888"]})
+            store.update(mine["id"], {**empty, "codes": ["026211"]})
+
+            self.assertEqual(store.get(mine["id"])["data"]["codes"], ["026211"])
+            self.assertEqual(store.get(other["id"])["data"]["codes"], ["008888"])
+            self.assertEqual(len(store.list()), 2)
+            self.assertTrue(store.delete(other["id"]))
+            self.assertIsNone(store.get(other["id"]))
+            self.assertEqual(len(store.list()), 1)
+            with self.assertRaises(PortfolioNameExistsError):
+                store.create("我的自选", empty)
     def setUp(self):
         self.service = FundDataService()
         self.service.session = FakeSession()
