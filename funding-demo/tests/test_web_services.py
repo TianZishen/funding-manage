@@ -51,6 +51,17 @@ class WebServiceTests(unittest.TestCase):
             market="HK",
         )
 
+    def test_fund_search_supports_name_code_and_pinyin(self):
+        self.service.fund_catalog = lambda: {
+            "008888": {"code": "008888", "name": "华夏国证半导体芯片ETF联接C", "type": "指数型", "pinyin": "HXGZBDTXPETFLJC"},
+            "012345": {"code": "012345", "name": "华夏成长混合", "type": "混合型", "pinyin": "HXCZHH"},
+            "159995": {"code": "159995", "name": "华夏国证半导体芯片ETF", "type": "指数型", "pinyin": "HXGZBDTXPETF"},
+        }
+
+        self.assertEqual(self.service.search_funds("0088")[0]["code"], "008888")
+        self.assertEqual(self.service.search_funds("半导体")[0]["code"], "159995")
+        self.assertEqual(self.service.search_funds("hxc")[0]["code"], "012345")
+        self.assertEqual(self.service.search_funds(""), [])
     def test_hk_quote_parsing(self):
         quote = self.service.fetch_hk_quotes([self.holding])["06869"]
         self.assertAlmostEqual(quote.latest, 201.2)

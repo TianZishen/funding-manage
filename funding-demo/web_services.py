@@ -126,6 +126,36 @@ class FundDataService:
             return {"exists": False, "code": normalized, "message": "未找到该基金"}
         return {"exists": True, **item}
 
+    def search_funds(self, query: str, limit: int = 8) -> List[Dict[str, str]]:
+        """Search the cached fund catalog by code, name, or pinyin abbreviation."""
+        needle = re.sub(r"\s+", "", str(query)).casefold()
+        if not needle:
+            return []
+        result_limit = max(1, min(int(limit), 20))
+        matches = []
+        for item in self.fund_catalog().values():
+            code = item["code"]
+            name = re.sub(r"\s+", "", item["name"]).casefold()
+            pinyin = re.sub(r"\s+", "", item.get("pinyin", "")).casefold()
+            if needle == code:
+                rank = 0
+            elif code.startswith(needle):
+                rank = 1
+            elif needle == name:
+                rank = 2
+            elif name.startswith(needle):
+                rank = 3
+            elif pinyin.startswith(needle):
+                rank = 4
+            elif needle in name:
+                rank = 5
+            elif needle in pinyin:
+                rank = 6
+            else:
+                continue
+            matches.append((rank, len(name), code, dict(item)))
+        matches.sort(key=lambda row: (row[0], row[1], row[2]))
+        return [row[3] for row in matches[:result_limit]]
     def _ensure_fund(self, code: str) -> Dict[str, str]:
         normalized = self.normalize_code(code)
         item = self.fund_catalog().get(normalized)

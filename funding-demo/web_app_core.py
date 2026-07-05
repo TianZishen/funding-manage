@@ -38,6 +38,14 @@ def health() -> Dict[str, Any]:
     return {"status": "ok", "service": "fund-valuation-demo"}
 
 
+@app.get("/api/funds/search")
+def search_funds(q: str = "", limit: int = 8) -> Dict[str, Any]:
+    try:
+        items = service.search_funds(q, limit)
+        return {"query": q, "count": len(items), "items": items}
+    except requests.RequestException as exc:
+        raise HTTPException(status_code=502, detail=f"基金目录暂不可用：{exc}") from exc
+
 @app.get("/api/funds/{code}/validate")
 def validate_fund(code: str) -> Dict[str, Any]:
     try:

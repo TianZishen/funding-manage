@@ -9,11 +9,11 @@
     :root{--bg:#f3f5f0;--card:#fff;--ink:#17201e;--muted:#68736f;--line:#dfe5df;--brand:#0d6b5c;--brand2:#d9eee8;--up:#d74638;--down:#16835f;--shadow:0 12px 34px rgba(25,48,42,.08)}
     *{box-sizing:border-box} body{margin:0;background:radial-gradient(circle at 90% 0,#dceee8 0,transparent 28%),var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
     button,input{font:inherit}.shell{width:min(1180px,calc(100% - 32px));margin:auto;padding:30px 0 56px}.top{display:flex;justify-content:space-between;gap:24px;align-items:flex-end;margin-bottom:22px}.eyebrow{color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.top h1{font-size:clamp(28px,5vw,48px);line-height:1.05;margin:6px 0 9px;letter-spacing:-.04em}.top p{color:var(--muted);margin:0}.pill{white-space:nowrap;background:#173f37;color:#fff;border-radius:999px;padding:9px 14px;font-size:12px}
-    .panel{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.8);border-radius:22px;box-shadow:var(--shadow)}.add{padding:18px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.input-wrap{display:flex;align-items:center;border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 14px}.input-wrap input{border:0;outline:0;background:transparent;width:100%;height:46px;font-size:17px;letter-spacing:.08em}.button{border:0;border-radius:13px;padding:13px 18px;background:var(--brand);color:#fff;font-weight:750;cursor:pointer}.button:hover{filter:brightness(.94)}.button:disabled{opacity:.55;cursor:wait}.ghost{background:var(--brand2);color:var(--brand)}.message{grid-column:1/-1;min-height:20px;color:var(--muted);font-size:13px}.message.error{color:#aa3028}
-    .section-head{display:flex;justify-content:space-between;align-items:center;margin:28px 2px 12px}.section-head h2{font-size:19px;margin:0}.section-head span{font-size:13px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.fund-card{padding:18px;border:1px solid transparent;cursor:pointer;transition:.18s}.fund-card:hover{transform:translateY(-2px);border-color:#b9d8cf}.card-top{display:flex;justify-content:space-between;gap:12px}.fund-name{font-weight:780;font-size:16px}.code,.meta{font-size:12px;color:var(--muted)}.estimate{font-size:30px;font-weight:820;letter-spacing:-.03em;margin:16px 0 2px}.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--muted)}.card-bottom{display:flex;justify-content:space-between;gap:8px;align-items:end}.tag{font-size:11px;background:#edf2ef;color:#52605b;border-radius:999px;padding:4px 8px}.position-line{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:10px 0 2px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.cost-button{border:0;background:var(--brand2);color:var(--brand);border-radius:9px;padding:4px 8px;cursor:pointer;font-size:11px}.remove{border:0;background:transparent;color:#8a9490;cursor:pointer;padding:4px}.skeleton{height:132px;background:linear-gradient(90deg,#edf0ed,#f8faf8,#edf0ed);background-size:200% 100%;animation:shimmer 1.2s infinite}@keyframes shimmer{to{background-position:-200% 0}}
+    .panel{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.8);border-radius:22px;box-shadow:var(--shadow)}.add{padding:18px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.input-wrap{display:flex;align-items:center;position:relative;border:1px solid var(--line);border-radius:14px;background:#fff;padding:0 14px}.input-wrap input{border:0;outline:0;background:transparent;width:100%;height:46px;font-size:17px}.suggestions{display:none;position:absolute;z-index:20;left:0;right:0;top:calc(100% + 7px);max-height:360px;overflow:auto;padding:6px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 38px rgba(25,48,42,.16)}.suggestions.open{display:block}.suggestion{display:flex;width:100%;justify-content:space-between;gap:14px;align-items:center;border:0;border-radius:10px;padding:10px;background:transparent;text-align:left;cursor:pointer}.suggestion:hover,.suggestion.active{background:#edf6f2}.suggestion strong{display:block}.suggestion span{color:var(--muted);font-size:12px}.suggestion-code{white-space:nowrap;color:var(--brand)!important;font-weight:750}.suggestion-empty{padding:12px;color:var(--muted);font-size:13px}.button{border:0;border-radius:13px;padding:13px 18px;background:var(--brand);color:#fff;font-weight:750;cursor:pointer}.button:hover{filter:brightness(.94)}.button:disabled{opacity:.55;cursor:wait}.ghost{background:var(--brand2);color:var(--brand)}.message{grid-column:1/-1;min-height:20px;color:var(--muted);font-size:13px}.message.error{color:#aa3028}
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin:28px 2px 12px}.section-head h2{font-size:19px;margin:0}.section-head span{font-size:13px;color:var(--muted)}.data-actions{display:flex;align-items:center;gap:7px}.data-dialog{width:min(680px,calc(100% - 24px));border:0;border-radius:20px;padding:0;box-shadow:0 24px 70px rgba(20,38,33,.24)}.data-dialog::backdrop{background:rgba(18,31,28,.45);backdrop-filter:blur(3px)}.data-dialog-inner{padding:20px}.data-dialog-head{display:flex;justify-content:space-between;gap:12px;align-items:start}.data-dialog h2{margin:0;font-size:21px}.data-dialog p{margin:5px 0 12px;color:var(--muted);font-size:13px}.data-text{width:100%;min-height:280px;resize:vertical;border:1px solid var(--line);border-radius:13px;padding:12px;background:#f8faf8;color:var(--ink);font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;outline:none}.data-text:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(13,107,92,.1)}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px;flex-wrap:wrap}.position-form{margin-top:15px}.entry-tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:14px;padding:4px;border-radius:12px;background:#f1f4f1}.entry-tab{border:0;border-radius:9px;padding:8px;background:transparent;color:var(--muted);font-weight:700;cursor:pointer}.entry-tab.active{background:#fff;color:var(--brand);box-shadow:0 2px 8px rgba(25,48,42,.1)}.entry-fields[hidden]{display:none}.nav-basis{margin:-5px 0 12px;padding:8px 10px;border-radius:10px;background:#f8faf8;color:var(--muted);font-size:12px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;margin-bottom:5px;font-size:13px;font-weight:700}.field input{width:100%;height:50px;border:1px solid var(--line);border-radius:13px;padding:0 13px;background:#fff;color:var(--ink);font-size:18px;outline:none}.field input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(13,107,92,.1)}.field small{display:block;margin-top:4px;color:var(--muted);font-size:11px}.position-preview{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding:13px 14px;border-radius:13px;background:#eff6f3;color:var(--muted);font-size:13px}.position-preview b{color:var(--ink);font-size:18px}.form-error{min-height:20px;margin-top:7px;color:#aa3028;font-size:12px}.danger-button{border:0;background:#f8e8e5;color:#a4342b;border-radius:13px;padding:13px 16px;font-weight:700;cursor:pointer}.transaction-list{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}.transaction-list h3{margin:0 0 8px;font-size:14px}.transaction-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid #edf0ed;font-size:12px}.transaction-item b{display:block}.transaction-item span{color:var(--muted)}.trade-buy{color:var(--up)}.trade-sell{color:var(--down)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.fund-card{padding:18px;border:1px solid transparent;cursor:pointer;transition:.18s}.fund-card:hover{transform:translateY(-2px);border-color:#b9d8cf}.card-top{display:flex;justify-content:space-between;gap:12px}.fund-name{font-weight:780;font-size:16px}.code,.meta{font-size:12px;color:var(--muted)}.estimate{font-size:30px;font-weight:820;letter-spacing:-.03em;margin:16px 0 2px}.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--muted)}.card-bottom{display:flex;justify-content:space-between;gap:8px;align-items:end}.tag{font-size:11px;background:#edf2ef;color:#52605b;border-radius:999px;padding:4px 8px}.position-line{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:10px 0 2px;padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.cost-button{border:0;background:var(--brand2);color:var(--brand);border-radius:9px;padding:4px 8px;cursor:pointer;font-size:11px}.position-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.remove{border:0;background:transparent;color:#8a9490;cursor:pointer;padding:4px}.skeleton{height:132px;background:linear-gradient(90deg,#edf0ed,#f8faf8,#edf0ed);background-size:200% 100%;animation:shimmer 1.2s infinite}@keyframes shimmer{to{background-position:-200% 0}}
     .empty{grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--muted)}.empty strong{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}.detail{margin-top:16px;padding:22px;display:none}.detail.open{display:block}.detail-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.detail h2{margin:0 0 3px;font-size:24px}.close{border:0;background:#eef2ef;width:34px;height:34px;border-radius:50%;cursor:pointer}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.metric{background:#f5f7f4;border-radius:14px;padding:13px}.metric label{display:block;color:var(--muted);font-size:11px}.metric b{font-size:18px}.chart-panel{border:1px solid var(--line);border-radius:18px;background:#fff;overflow:hidden}.chart-toolbar{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:14px 16px 10px;border-bottom:1px solid #edf0ed}.chart-title{font-weight:780}.chart-stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:3px;color:var(--muted);font-size:11px}.chart-stats b{color:var(--ink);font-size:12px}.range-tabs{display:flex;gap:4px;background:#f1f4f1;border-radius:10px;padding:3px}.range-button{border:0;background:transparent;color:var(--muted);border-radius:8px;padding:5px 9px;font-size:11px;cursor:pointer}.range-button.active{background:#fff;color:var(--brand);box-shadow:0 2px 8px rgba(25,48,42,.12);font-weight:750}.chart-wrap{height:310px;position:relative;padding:10px 12px 8px}.chart-wrap canvas{width:100%;height:100%;display:block;touch-action:pan-y;outline:none}.chart-wrap canvas:focus-visible{box-shadow:inset 0 0 0 2px var(--brand);border-radius:10px}.chart-tooltip{position:absolute;display:none;z-index:2;pointer-events:none;min-width:132px;padding:9px 11px;border-radius:11px;background:rgba(23,32,30,.94);color:#fff;font-size:11px;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.18)}.chart-tooltip b{display:block;font-size:14px}.chart-hint{padding:0 16px 11px;color:var(--muted);font-size:11px}.subgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:14px;margin-top:14px}.box{border:1px solid var(--line);border-radius:16px;padding:16px;overflow:auto}.box h3{font-size:15px;margin:0 0 10px}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:9px 7px;border-bottom:1px solid #edf0ed;white-space:nowrap}th{color:var(--muted);font-weight:600}.note{background:#eff6f3;border-radius:14px;padding:13px;color:#50615b;font-size:13px}.footer{color:var(--muted);font-size:12px;text-align:center;margin-top:28px}
     @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.subgrid{grid-template-columns:1fr}}
-    @media(max-width:620px){.shell{width:min(100% - 20px,1180px);padding-top:20px}.top{display:block}.pill{display:inline-block;margin-top:14px}.add{grid-template-columns:1fr}.button{width:100%}.grid{grid-template-columns:1fr}.detail{padding:16px}.metrics{grid-template-columns:repeat(2,1fr)}.chart-toolbar{display:block}.range-tabs{margin-top:10px;width:max-content}.chart-stats{gap:9px}.chart-wrap{height:270px;padding-left:6px;padding-right:8px}.chart-hint{display:none}.hide-mobile{display:none}}
+    @media(max-width:620px){.shell{width:min(100% - 20px,1180px);padding-top:20px}.top{display:block}.pill{display:inline-block;margin-top:14px}.add{grid-template-columns:1fr}.button{width:100%}.grid{grid-template-columns:1fr}.detail{padding:16px}.metrics{grid-template-columns:repeat(2,1fr)}.chart-toolbar{display:block}.range-tabs{margin-top:10px;width:max-content}.chart-stats{gap:9px}.chart-wrap{height:270px;padding-left:6px;padding-right:8px}.chart-hint{display:none}.hide-mobile{display:none}.section-head{align-items:flex-start}.data-actions{flex-wrap:wrap;justify-content:flex-end}.data-dialog-inner{padding:16px}.data-text{min-height:240px}.field-grid{grid-template-columns:1fr}.position-preview{align-items:flex-start}.dialog-actions .button,.dialog-actions .danger-button{width:100%}}
   </style>
 </head>
 <body>
@@ -24,24 +24,74 @@
     </header>
 
     <section class="panel add" aria-label="添加基金">
-      <div class="input-wrap"><input id="fundInput" inputmode="numeric" maxlength="6" placeholder="输入6位基金代码，例如 026211" aria-label="基金代码"></div>
-      <button id="addButton" class="button">验证并添加</button>
+      <div class="input-wrap"><input id="fundInput" inputmode="search" autocomplete="off" placeholder="输入基金名称、代码或拼音，例如 半导体" aria-label="基金名称或代码" role="combobox" aria-autocomplete="list" aria-controls="fundSuggestions" aria-expanded="false"><div id="fundSuggestions" class="suggestions" role="listbox"></div></div>
+      <button id="addButton" class="button">搜索并添加</button>
       <div id="message" class="message">第一次体验？<button id="exampleButton" class="remove" style="color:var(--brand)">添加示例 026211</button></div>
     </section>
 
-    <div class="section-head"><h2>我的自选</h2><span id="watchCount">0 只基金</span></div>
+<div class="section-head"><h2>我的自选</h2><div class="data-actions"><button id="exportButton" class="cost-button">导出数据</button><button id="importButton" class="cost-button">导入数据</button><span id="watchCount">0 只基金</span></div></div>
     <section id="watchlist" class="grid" aria-live="polite"></section>
 
     <section id="detail" class="panel detail" aria-live="polite">
       <div id="detailContent"></div>
     </section>
 
-    <footer class="footer">估值会按基金类型选择ETF实时行情或公开持仓策略，结果不代表基金公司正式净值。</footer>
+
+    <dialog id="dataDialog" class="data-dialog">
+      <div class="data-dialog-inner">
+        <div class="data-dialog-head"><div><h2 id="dataDialogTitle">导出数据</h2><p id="dataDialogHelp"></p></div><button class="close" onclick="closeDataDialog()" aria-label="关闭">×</button></div>
+        <textarea id="dataText" class="data-text" spellcheck="false" aria-label="导入导出数据文本"></textarea>
+        <div class="dialog-actions"><button id="copyDataButton" class="button">复制文本</button><button id="mergeDataButton" class="button ghost">合并导入</button><button id="replaceDataButton" class="button">覆盖导入</button></div>
+      </div>
+    </dialog>
+    <dialog id="positionDialog" class="data-dialog">
+      <div class="data-dialog-inner">
+        <div class="data-dialog-head"><div><h2>编辑当前持仓</h2><p id="positionDialogHelp">同时填写当前份额和每份成本净值。</p></div><button class="close" type="button" onclick="closePositionDialog()" aria-label="关闭">×</button></div>
+        <form id="positionForm" class="position-form" novalidate>
+          <div class="entry-tabs" aria-label="持仓录入方式"><button class="entry-tab active" type="button" data-position-mode="amount">按金额与盈亏</button><button class="entry-tab" type="button" data-position-mode="units">按份额与成本</button></div>
+          <div id="positionNavHint" class="nav-basis"></div>
+          <div id="amountPositionFields" class="entry-fields">
+            <div class="field-grid">
+              <div class="field"><label for="positionAmount">当前总持仓金额</label><input id="positionAmount" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 12580.60" autocomplete="off"><small>基金 App 当前显示的持有金额</small></div>
+              <div class="field"><label for="positionPnl">当前盈亏金额</label><input id="positionPnl" type="number" inputmode="decimal" step="any" placeholder="盈利填正数，亏损填负数" autocomplete="off"><small>例如盈利 580 填 580，亏损 200 填 -200</small></div>
+            </div>
+          </div>
+          <div id="unitPositionFields" class="entry-fields" hidden>
+            <div class="field-grid">
+              <div class="field"><label for="positionShares">当前持仓份额</label><input id="positionShares" name="shares" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 10000" autocomplete="off"><small>基金确认后的实际持有份额</small></div>
+              <div class="field"><label for="positionCostNav">每份成本净值</label><input id="positionCostNav" name="costNav" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 1.2345" autocomplete="off"><small>总投入金额 ÷ 当前持仓份额</small></div>
+            </div>
+          </div>
+          <div class="position-preview"><span id="positionPreviewLabel">反推份额与成本净值</span><b id="positionCostPreview">--</b></div>
+          <div id="positionFormError" class="form-error" role="alert"></div>
+          <div class="dialog-actions"><button id="clearPositionButton" class="danger-button" type="button">清除持仓</button><button class="button ghost" type="button" onclick="closePositionDialog()">取消</button><button class="button" type="submit">保存持仓</button></div>
+        </form>
+      </div>
+    </dialog>
+    <dialog id="transactionDialog" class="data-dialog">
+      <div class="data-dialog-inner">
+        <div class="data-dialog-head"><div><h2>记录买入 / 卖出</h2><p id="transactionDialogHelp"></p></div><button class="close" type="button" onclick="closeTransactionDialog()" aria-label="关闭">×</button></div>
+        <form id="transactionForm" class="position-form" novalidate>
+          <div class="entry-tabs"><button class="entry-tab active" type="button" data-trade-type="buy">买入</button><button class="entry-tab" type="button" data-trade-type="sell">卖出</button></div>
+          <div class="field"><label for="transactionDate">交易日期</label><input id="transactionDate" type="date"></div>
+          <div class="entry-tabs" style="margin-top:14px"><button class="entry-tab active" type="button" data-trade-mode="amount">按金额</button><button class="entry-tab" type="button" data-trade-mode="ratio">按持仓比例</button></div>
+          <div class="field-grid">
+            <div id="transactionAmountField" class="field"><label for="transactionAmount">交易金额</label><input id="transactionAmount" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 1000"><small>按所选日期正式净值换算份额</small></div>
+            <div id="transactionRatioField" class="field" hidden><label for="transactionRatio">持仓比例</label><input id="transactionRatio" type="number" inputmode="decimal" min="0" step="any" placeholder="例如 20"><small>相对交易前持仓，填写 0-100</small></div>
+          </div>
+          <div class="position-preview"><span id="transactionPreviewLabel">等待匹配正式净值</span><b id="transactionPreview">--</b></div>
+          <div id="transactionFormError" class="form-error" role="alert"></div>
+          <div class="dialog-actions"><button class="button ghost" type="button" onclick="closeTransactionDialog()">取消</button><button class="button" type="submit">保存交易</button></div>
+        </form>
+        <div class="transaction-list"><h3>最近交易</h3><div id="transactionHistory"></div></div>
+      </div>
+    </dialog>    <footer class="footer">估值会按基金类型选择ETF实时行情或公开持仓策略，结果不代表基金公司正式净值。</footer>
   </main>
   <script>
     const STORAGE_KEY='funding-demo-watchlist-v1';
     const COST_STORAGE_KEY='funding-demo-costs-v1';
-    const state={codes:JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'),costs:JSON.parse(localStorage.getItem(COST_STORAGE_KEY)||'{}'),detailCode:null,chartPoints:[],chartRange:'1y',chartHover:null};
+    const TRANSACTION_STORAGE_KEY='funding-demo-transactions-v1';
+    const state={codes:JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'),costs:JSON.parse(localStorage.getItem(COST_STORAGE_KEY)||'{}'),transactions:JSON.parse(localStorage.getItem(TRANSACTION_STORAGE_KEY)||'{}'),currentNavs:{},histories:{},searchResults:[],searchIndex:-1,searchToken:0,detailCode:null,chartPoints:[],chartRange:'1y',chartHover:null};
     const $=id=>document.getElementById(id);
     const esc=s=>String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
     const fmtPct=v=>v==null?'--':`${v>=0?'+':''}${Number(v).toFixed(2)}%`;
@@ -50,6 +100,46 @@
     async function api(path){const r=await fetch(path);let body;try{body=await r.json()}catch{body={detail:'响应格式异常'}}if(!r.ok)throw new Error(body.detail||`请求失败 ${r.status}`);return body}
     function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state.codes))}
     function saveCosts(){localStorage.setItem(COST_STORAGE_KEY,JSON.stringify(state.costs))}
+    function saveTransactions(){localStorage.setItem(TRANSACTION_STORAGE_KEY,JSON.stringify(state.transactions))}
+    function validateTransferData(data){
+      if(!data||data.app!=='funding-rader'||data.version!==2)throw new Error('不是净值雷达 v2 数据格式');
+      if(!Array.isArray(data.codes)||!data.costs||Array.isArray(data.costs)||typeof data.costs!=='object'||!data.transactions||Array.isArray(data.transactions)||typeof data.transactions!=='object')throw new Error('自选、持仓或交易数据结构不正确');
+      const codes=[...new Set(data.codes.map(String))];if(codes.some(code=>!/^[0-9]{6}$/.test(code)))throw new Error('数据中包含无效的基金代码');
+      const costs={};for(const [code,stored] of Object.entries(data.costs)){
+        const costNav=Number(stored?.costNav),shares=Number(stored?.shares);if(!/^[0-9]{6}$/.test(code)||!Number.isFinite(costNav)||costNav<=0||!Number.isFinite(shares)||shares<=0)throw new Error(`基金 ${code} 的持仓无效`);costs[code]={shares,costNav};
+      }
+      const transactions={};for(const [code,records] of Object.entries(data.transactions)){
+        if(!/^[0-9]{6}$/.test(code)||!Array.isArray(records))throw new Error(`基金 ${code} 的交易记录无效`);
+        transactions[code]=records.map(record=>{if(!record?.id||!['buy','sell'].includes(record.type)||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(record.date)||!Number.isFinite(Number(record.nav))||!Number.isFinite(Number(record.amount))||!Number.isFinite(Number(record.shares)))throw new Error(`基金 ${code} 包含无效交易`);return record});
+      }
+      return {codes,costs,transactions};
+    }    function exportData(){
+      const payload={app:'funding-rader',version:2,exportedAt:new Date().toISOString(),codes:state.codes,costs:state.costs,transactions:state.transactions};
+      validateTransferData(payload);return JSON.stringify(payload,null,2);
+    }
+    function openDataDialog(mode){
+      const dialog=$('dataDialog'),isExport=mode==='export';dialog.dataset.mode=mode;
+      $('dataDialogTitle').textContent=isExport?'导出浏览器数据':'导入浏览器数据';
+      $('dataDialogHelp').textContent=isExport?'复制并妥善保存下面的文本，可在其他浏览器中恢复。':'粘贴由净值雷达导出的完整 JSON 文本，然后选择合并或覆盖。';
+      $('copyDataButton').hidden=!isExport;$('mergeDataButton').hidden=isExport;$('replaceDataButton').hidden=isExport;
+      $('dataText').value=isExport?exportData():'';dialog.showModal();requestAnimationFrame(()=>{$('dataText').focus();if(isExport)$('dataText').select()});
+    }
+    function closeDataDialog(){$('dataDialog').close()}
+    async function copyDataText(){
+      const field=$('dataText');
+      try{await navigator.clipboard.writeText(field.value)}catch{field.select();document.execCommand('copy')}
+      $('copyDataButton').textContent='已复制';setTimeout(()=>{$('copyDataButton').textContent='复制文本'},1200);
+    }
+    function importData(mode){
+      let imported;try{imported=validateTransferData(JSON.parse($('dataText').value))}catch(error){window.alert(`导入失败：${error.message}`);return}
+      if(mode==='replace'&&!window.confirm('覆盖会清除当前浏览器已有的自选与持仓数据，确定继续吗？'))return;
+      if(mode==='replace'){
+        state.codes=imported.codes;state.costs=imported.costs;state.transactions=imported.transactions;
+      }else{
+        state.codes=[...new Set([...state.codes,...imported.codes])];state.costs={...state.costs,...imported.costs};for(const [code,records] of Object.entries(imported.transactions)){const seen=new Set();state.transactions[code]=[...records,...(state.transactions[code]||[])].filter(record=>!seen.has(record.id)&&seen.add(record.id)).sort((a,b)=>String(b.createdAt).localeCompare(String(a.createdAt)))}
+      }
+      save();saveCosts();saveTransactions();closeDataDialog();if(state.detailCode){$('detail').classList.remove('open');state.detailCode=null}renderWatchlist();message(`已${mode==='replace'?'覆盖':'合并'}导入 ${imported.codes.length} 只基金`);
+    }
     function positionOf(code){
       const stored=state.costs[code];
       const costNav=Number(typeof stored==='object'?stored.costNav:stored);
@@ -64,20 +154,143 @@
     const fmtMoney=value=>value==null?'--':`${value>=0?'+':'-'}¥${Math.abs(Number(value)).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
     function editCost(code,event){
       if(event)event.stopPropagation();
-      const current=positionOf(code);
-      const sharesRaw=window.prompt('请输入当前持仓份额；两项都留空可清除持仓',current.shares==null?'':String(current.shares));
-      if(sharesRaw===null)return;
-      const costRaw=window.prompt('请输入每份成本净值；两项都留空可清除持仓',current.costNav==null?'':String(current.costNav));
-      if(costRaw===null)return;
-      const sharesValue=String(sharesRaw).trim(),costValue=String(costRaw).trim();
-      if(!sharesValue&&!costValue){delete state.costs[code];saveCosts();renderWatchlist();if(state.detailCode===code)openDetail(code);return}
-      const shares=Number(sharesValue),costNav=Number(costValue);
-      if(!Number.isFinite(shares)||shares<=0){window.alert('持仓份额必须是大于 0 的数字');return}
-      if(!Number.isFinite(costNav)||costNav<=0){window.alert('成本净值必须是大于 0 的数字');return}
-      state.costs[code]={shares,costNav};saveCosts();renderWatchlist();if(state.detailCode===code)openDetail(code);
+      const current=positionOf(code),navInfo=state.currentNavs[code],dialog=$('positionDialog');dialog.dataset.code=code;
+      $('positionShares').value=current.shares==null?'':current.shares;
+      $('positionCostNav').value=current.costNav==null?'':current.costNav;
+      if(current.shares&&current.costNav&&navInfo?.value){
+        $('positionAmount').value=(current.shares*navInfo.value).toFixed(2);
+        $('positionPnl').value=((navInfo.value-current.costNav)*current.shares).toFixed(2);
+      }else{$('positionAmount').value='';$('positionPnl').value=''}
+      $('positionDialogHelp').textContent=`基金 ${code} · 选择最方便的数据录入方式`;
+      $('positionNavHint').textContent=navInfo?.value?`反推基准：${navInfo.label} ${navInfo.value.toFixed(4)}`:'最新正式净值不可用，请按份额与成本录入';
+      $('positionFormError').textContent='';$('clearPositionButton').hidden=current.shares==null&&current.costNav==null;
+      setPositionMode(navInfo?.value?'amount':'units');dialog.showModal();requestAnimationFrame(()=>$(navInfo?.value?'positionAmount':'positionShares').focus());
+    }
+    function closePositionDialog(){$('positionDialog').close()}
+    function numericInput(id){const value=$(id).value.trim();return value===''?NaN:Number(value)}
+    function positionInputValues(){return {shares:numericInput('positionShares'),costNav:numericInput('positionCostNav')}}
+    function amountInputValues(){return {amount:numericInput('positionAmount'),pnl:numericInput('positionPnl')}}
+    function derivePosition(amount,pnl,nav){
+      if(!Number.isFinite(amount)||amount<=0||!Number.isFinite(pnl)||!Number.isFinite(nav)||nav<=0||amount-pnl<=0)return {shares:NaN,costNav:NaN};
+      const shares=amount/nav;return {shares,costNav:(amount-pnl)/shares};
+    }
+    function setPositionMode(mode){
+      const dialog=$('positionDialog');dialog.dataset.inputMode=mode;
+      $('amountPositionFields').hidden=mode!=='amount';$('unitPositionFields').hidden=mode!=='units';
+      document.querySelectorAll('[data-position-mode]').forEach(button=>button.classList.toggle('active',button.dataset.positionMode===mode));
+      $('positionFormError').textContent='';updatePositionPreview();
+    }
+    function calculatedPosition(){
+      const mode=$('positionDialog').dataset.inputMode;
+      if(mode==='units')return positionInputValues();
+      const {amount,pnl}=amountInputValues(),nav=state.currentNavs[$('positionDialog').dataset.code]?.value;
+      return derivePosition(amount,pnl,nav);
+    }
+    function updatePositionPreview(){
+      const mode=$('positionDialog').dataset.inputMode,{shares,costNav}=calculatedPosition();
+      const valid=Number.isFinite(shares)&&shares>0&&Number.isFinite(costNav)&&costNav>0;
+      $('positionPreviewLabel').textContent=mode==='amount'?'反推份额与成本净值':'预计总成本';
+      $('positionCostPreview').textContent=!valid?'--':mode==='amount'?`${shares.toFixed(2)} 份 · ${costNav.toFixed(4)}`:`¥${(shares*costNav).toLocaleString('zh-CN',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+    }
+    function savePosition(event){
+      event.preventDefault();const dialog=$('positionDialog'),code=dialog.dataset.code,mode=dialog.dataset.inputMode;
+      if(mode==='amount'){
+        const {amount,pnl}=amountInputValues();
+        if(!Number.isFinite(amount)||amount<=0){$('positionFormError').textContent='请输入大于 0 的当前总持仓金额';$('positionAmount').focus();return}
+        if(!Number.isFinite(pnl)){$('positionFormError').textContent='请输入当前盈亏金额，亏损请填写负数';$('positionPnl').focus();return}
+        if(amount-pnl<=0){$('positionFormError').textContent='总成本必须大于 0，请检查持仓金额和盈亏金额';$('positionPnl').focus();return}
+      }
+      const {shares,costNav}=calculatedPosition();
+      if(!Number.isFinite(shares)||shares<=0){$('positionFormError').textContent='请输入大于 0 的持仓份额';$('positionShares').focus();return}
+      if(!Number.isFinite(costNav)||costNav<=0){$('positionFormError').textContent='请输入大于 0 的每份成本净值';$('positionCostNav').focus();return}
+      state.costs[code]={shares,costNav};saveCosts();closePositionDialog();refreshPositionViews(code);
+    }    function clearPosition(){
+      const code=$('positionDialog').dataset.code;if(!code)return;
+      delete state.costs[code];saveCosts();closePositionDialog();refreshPositionViews(code);
+    }
+    function refreshPositionViews(code){renderWatchlist();if(state.detailCode===code)openDetail(code)}
+    const localToday=()=>{const date=new Date(),offset=date.getTimezoneOffset()*60000;return new Date(date-offset).toISOString().slice(0,10)};
+    function matchedOfficialNav(code,date){
+      const points=state.histories[code]||[];return [...points].filter(point=>point.date<=date).sort((a,b)=>a.date.localeCompare(b.date)).at(-1)||null;
+    }
+    function transactionValues(){
+      const dialog=$('transactionDialog'),code=dialog.dataset.code,type=dialog.dataset.tradeType,mode=dialog.dataset.tradeMode;
+      const holding=positionOf(code),point=matchedOfficialNav(code,$('transactionDate').value),nav=Number(point?.unit_nav);
+      const input=mode==='amount'?numericInput('transactionAmount'):numericInput('transactionRatio');
+      let shares=NaN,amount=NaN;
+      if(point&&Number.isFinite(input)&&input>0){
+        if(mode==='amount'){amount=input;shares=amount/nav}else if(holding.shares){shares=holding.shares*input/100;amount=shares*nav}
+      }
+      return {code,type,mode,input,holding,point,nav,shares,amount};
+    }
+    function calculateTransactionAfter(values){
+      const {type,holding,shares,amount}=values,oldShares=holding.shares||0,oldCost=holding.costNav||0;
+      if(!Number.isFinite(shares)||shares<=0)return null;
+      if(type==='sell'){
+        if(!oldShares||shares>oldShares+1e-8)return null;
+        const remaining=Math.max(0,oldShares-shares);return remaining?{shares:remaining,costNav:oldCost}:null;
+      }
+      const totalShares=oldShares+shares,totalCost=oldShares*oldCost+amount;
+      return {shares:totalShares,costNav:totalCost/totalShares};
+    }
+    async function openTransaction(code,type,event){
+      if(event)event.stopPropagation();const dialog=$('transactionDialog');dialog.dataset.code=code;
+      $('transactionDate').value=localToday();$('transactionDate').max=localToday();$('transactionAmount').value='';$('transactionRatio').value='';$('transactionFormError').textContent='';
+      setTradeType(type||'buy');setTradeMode('amount');$('transactionDialogHelp').textContent=`基金 ${code} · 正在加载历史正式净值…`;renderTransactionHistory(code);dialog.showModal();
+      try{if(!state.histories[code])state.histories[code]=(await api(`/api/funds/${code}/history`)).points||[];$('transactionDialogHelp').textContent=`基金 ${code} · 交易按正式净值计算`;updateTransactionPreview()}catch(error){$('transactionFormError').textContent=`历史净值加载失败：${error.message}`}
+    }
+    function closeTransactionDialog(){$('transactionDialog').close()}
+    function setTradeType(type){$('transactionDialog').dataset.tradeType=type;document.querySelectorAll('[data-trade-type]').forEach(button=>button.classList.toggle('active',button.dataset.tradeType===type));updateTransactionPreview()}
+    function setTradeMode(mode){$('transactionDialog').dataset.tradeMode=mode;$('transactionAmountField').hidden=mode!=='amount';$('transactionRatioField').hidden=mode!=='ratio';document.querySelectorAll('[data-trade-mode]').forEach(button=>button.classList.toggle('active',button.dataset.tradeMode===mode));updateTransactionPreview()}
+    function updateTransactionPreview(){
+      const values=transactionValues(),after=calculateTransactionAfter(values),label=$('transactionPreviewLabel');
+      if(!values.point){label.textContent='所选日期之前没有正式净值';$('transactionPreview').textContent='--';return}
+      label.textContent=`采用 ${values.point.date} 正式净值 ${values.nav.toFixed(4)}`;
+      $('transactionPreview').textContent=after&&Number.isFinite(values.shares)?`${values.shares.toFixed(2)} 份 · ¥${values.amount.toFixed(2)}`:'--';
+    }
+    function saveTransaction(event){
+      event.preventDefault();const values=transactionValues(),after=calculateTransactionAfter(values),error=$('transactionFormError');error.textContent='';
+      if(!values.point){error.textContent='所选日期之前没有可用的正式净值';return}
+      if(!Number.isFinite(values.input)||values.input<=0){error.textContent=values.mode==='amount'?'请输入大于 0 的交易金额':'请输入大于 0 的持仓比例';return}
+      if(values.mode==='ratio'&&values.input>100){error.textContent='持仓比例不能超过 100%';return}
+      if(values.mode==='ratio'&&!values.holding.shares){error.textContent='当前没有持仓，不能按比例交易';return}
+      if(values.type==='sell'&&!after&&Math.abs(values.shares-(values.holding.shares||0))>1e-8){error.textContent='卖出份额超过当前持仓';return}
+      const before=values.holding.shares?{shares:values.holding.shares,costNav:values.holding.costNav}:null;
+      if(after)state.costs[values.code]=after;else delete state.costs[values.code];
+      const record={id:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,createdAt:new Date().toISOString(),type:values.type,date:$('transactionDate').value,navDate:values.point.date,nav:values.nav,mode:values.mode,input:values.input,amount:values.amount,shares:values.shares,before,after};
+      state.transactions[values.code]=[record,...(state.transactions[values.code]||[])];saveCosts();saveTransactions();closeTransactionDialog();refreshPositionViews(values.code);
+    }
+    function renderTransactionHistory(code){
+      const records=(state.transactions[code]||[]).slice(0,8),root=$('transactionHistory');
+      root.innerHTML=records.length?records.map((record,index)=>`<div class="transaction-item"><div><b class="${record.type==='buy'?'trade-buy':'trade-sell'}">${record.type==='buy'?'买入':'卖出'} ¥${Number(record.amount).toFixed(2)}</b><span>${esc(record.date)} · 净值 ${Number(record.nav).toFixed(4)} · ${Number(record.shares).toFixed(2)} 份</span></div>${index===0?`<button class="remove" type="button" onclick="undoLatestTransaction('${code}')">撤销</button>`:''}</div>`).join(''):'<div class="meta">暂无交易记录</div>';
+    }
+    function undoLatestTransaction(code){
+      const records=state.transactions[code]||[],record=records[0];if(!record)return;
+      if(!window.confirm(`撤销 ${record.date} 的${record.type==='buy'?'买入':'卖出'}记录？`))return;
+      if(record.before)state.costs[code]=record.before;else delete state.costs[code];state.transactions[code]=records.slice(1);saveCosts();saveTransactions();renderTransactionHistory(code);refreshPositionViews(code);
     }
     function message(text,error=false){$('message').className=`message${error?' error':''}`;$('message').textContent=text}
-    async function addFund(raw){const code=String(raw||'').trim();if(!/^\d{6}$/.test(code)){message('请输入6位基金代码。',true);return}$('addButton').disabled=true;message('正在验证基金…');try{const data=await api(`/api/funds/${code}/validate`);if(!data.exists)throw new Error(data.message||'基金不存在');if(!state.codes.includes(code)){state.codes.unshift(code);save()}message(`已添加：${data.name}`);$('fundInput').value='';renderWatchlist();openDetail(code)}catch(e){message(e.message,true)}finally{$('addButton').disabled=false}}
+    function closeFundSuggestions(){state.searchToken++;const root=$('fundSuggestions');root.classList.remove('open');root.innerHTML='';$('fundInput').setAttribute('aria-expanded','false');state.searchResults=[];state.searchIndex=-1}
+    function renderFundSuggestions(items,status=''){
+      const root=$('fundSuggestions');state.searchResults=items;state.searchIndex=-1;root.classList.add('open');$('fundInput').setAttribute('aria-expanded','true');
+      root.innerHTML=items.length?items.map((item,index)=>`<button class="suggestion" type="button" role="option" data-suggestion-index="${index}" onclick="selectFundSuggestion('${item.code}')"><span><strong>${esc(item.name)}</strong><span>${esc(item.type||'类型未知')}</span></span><span class="suggestion-code">${esc(item.code)}</span></button>`).join(''):`<div class="suggestion-empty">${esc(status||'没有匹配的基金')}</div>`;
+    }
+    async function searchFundCatalog(query,announce=false){
+      const value=String(query||'').trim(),token=++state.searchToken;if(!value){closeFundSuggestions();return []}
+      renderFundSuggestions([],'正在搜索…');
+      try{const result=await api(`/api/funds/search?q=${encodeURIComponent(value)}&limit=8`);if(token!==state.searchToken)return [];renderFundSuggestions(result.items);if(announce&&!result.items.length)message('没有找到匹配的基金',true);return result.items}catch(error){if(token===state.searchToken){renderFundSuggestions([],error.message);if(announce)message(error.message,true)}return []}
+    }
+    function selectFundSuggestion(code){$('fundInput').value=code;closeFundSuggestions();addFund(code)}
+    function moveFundSuggestion(direction){
+      if(!state.searchResults.length)return;state.searchIndex=(state.searchIndex+direction+state.searchResults.length)%state.searchResults.length;
+      document.querySelectorAll('[data-suggestion-index]').forEach((item,index)=>{item.classList.toggle('active',index===state.searchIndex);item.setAttribute('aria-selected',index===state.searchIndex?'true':'false')});
+    }
+    async function submitFundInput(){
+      const value=$('fundInput').value.trim();if(/^[0-9]{6}$/.test(value)){addFund(value);return}
+      if(!value){message('请输入基金名称或代码。',true);return}
+      const items=await searchFundCatalog(value,true),exact=items.find(item=>item.name===value);
+      if(exact)selectFundSuggestion(exact.code);else if(items.length)message('请选择联想列表中的基金')
+    }    async function addFund(raw){const code=String(raw||'').trim();if(!/^\d{6}$/.test(code)){message('请输入6位基金代码。',true);return}$('addButton').disabled=true;message('正在验证基金…');try{const data=await api(`/api/funds/${code}/validate`);if(!data.exists)throw new Error(data.message||'基金不存在');if(!state.codes.includes(code)){state.codes.unshift(code);save()}message(`已添加：${data.name}`);$('fundInput').value='';renderWatchlist();openDetail(code)}catch(e){message(e.message,true)}finally{$('addButton').disabled=false}}
     function removeFund(code,event){event.stopPropagation();state.codes=state.codes.filter(item=>item!==code);save();if(state.detailCode===code){$('detail').classList.remove('open');state.detailCode=null}renderWatchlist()}
 
     async function renderWatchlist(){const root=$('watchlist');$('watchCount').textContent=`${state.codes.length} 只基金`;if(!state.codes.length){root.innerHTML='<div class="panel empty"><strong>还没有自选基金</strong>输入基金代码，验证通过后会出现在这里。</div>';return}root.innerHTML=state.codes.map(code=>`<article class="panel fund-card" id="card-${code}" onclick="openDetail('${code}')"><div class="skeleton"></div></article>`).join('');state.codes.forEach(loadCard)}
@@ -99,8 +312,9 @@
           ?(available?'盘中估算':'估值不可用')
           :`正式净值 · ${esc(fund.latest_nav_date)}`;
         const currentNav=intraday&&available?estimate.estimated_nav:fund.latest_nav;
+        state.currentNavs[code]={value:Number(fund.latest_nav),label:`最新正式净值 · ${fund.latest_nav_date}`};
         const holding=positionOf(code),profit=profitOf(code,currentNav);
-        const position=`<div class="position-line"><span>${holding.shares==null?'未设置持仓':`${holding.shares.toLocaleString('zh-CN')} 份 · 成本 ${holding.costNav.toFixed(4)}`} · 总盈利 <b class="${cls(profit?.amount)}">${fmtMoney(profit?.amount)}</b> <b class="${cls(profit?.pct)}">(${fmtPct(profit?.pct)})</b></span><button class="cost-button" onclick="editCost('${code}',event)">${holding.shares==null?'设置持仓':'修改持仓'}</button></div>`;
+        const position=`<div class="position-line"><span>${holding.shares==null?'未设置持仓':`${holding.shares.toLocaleString('zh-CN')} 份 · 成本 ${holding.costNav.toFixed(4)}`} · 总盈利 <b class="${cls(profit?.amount)}">${fmtMoney(profit?.amount)}</b> <b class="${cls(profit?.pct)}">(${fmtPct(profit?.pct)})</b></span><div class="position-actions"><button class="cost-button" onclick="openTransaction('${code}','buy',event)">买入</button><button class="cost-button" onclick="openTransaction('${code}','sell',event)">卖出</button><button class="cost-button" onclick="editCost('${code}',event)">${holding.shares==null?'设置持仓':'修改持仓'}</button></div></div>`;
         node.innerHTML=`<div class="card-top"><div><div class="fund-name">${esc(fund.name)}</div><div class="code">${esc(code)} · ${esc(fund.type||'类型未知')}</div></div><button class="remove" aria-label="移除" onclick="removeFund('${code}',event)">移除</button></div><div class="estimate ${cls(pct)}">${value}</div>${position}<div class="card-bottom"><div class="meta">${meta}</div><span class="tag">${tag}</span></div>`;
       }catch(e){node.innerHTML=`<div class="card-top"><div><div class="fund-name">${esc(code)}</div><div class="code">加载失败</div></div><button class="remove" onclick="removeFund('${code}',event)">移除</button></div><p class="meta">${esc(e.message)}</p>`}
     }
@@ -121,8 +335,9 @@
           ?`<div class="metric"><label>盘中预计涨跌</label><b class="${cls(ok?estimate.estimated_change_pct:0)}">${ok?fmtPct(estimate.estimated_change_pct):'--'}</b></div><div class="metric"><label>预计净值</label><b>${ok?Number(estimate.estimated_nav).toFixed(4):'--'}</b></div><div class="metric"><label>上日净值 · ${esc(fund.latest_nav_date)}</label><b>${Number(fund.latest_nav).toFixed(4)}</b></div>`
           :`<div class="metric"><label>正式涨跌 · ${esc(fund.latest_nav_date)}</label><b class="${cls(fund.latest_daily_return_pct)}">${fmtPct(fund.latest_daily_return_pct)}</b></div><div class="metric"><label>最新正式净值</label><b>${Number(fund.latest_nav).toFixed(4)}</b></div><div class="metric"><label>上日净值 · ${esc(fund.previous_nav_date||'--')}</label><b>${fund.previous_nav==null?'--':Number(fund.previous_nav).toFixed(4)}</b></div>`;
         const currentNav=intraday&&ok?estimate.estimated_nav:fund.latest_nav;
+        state.currentNavs[code]={value:Number(fund.latest_nav),label:`最新正式净值 · ${fund.latest_nav_date}`};
         const holding=positionOf(code),profit=profitOf(code,currentNav);
-        const profitMetric=`<div class="metric"><label>总盈利 · ${intraday&&ok?'按预计净值':'按正式净值'}</label><b class="${cls(profit?.amount)}">${fmtMoney(profit?.amount)}</b><span class="${cls(profit?.pct)}" style="display:block;font-size:12px;margin-top:2px">盈利率 ${fmtPct(profit?.pct)}</span><button class="cost-button" style="display:block;margin-top:6px" onclick="editCost('${code}',event)">${holding.shares==null?'设置持仓':`${holding.shares.toLocaleString('zh-CN')} 份 · 成本 ${holding.costNav.toFixed(4)}`}</button></div>`;
+        const profitMetric=`<div class="metric"><label>总盈利 · ${intraday&&ok?'按预计净值':'按正式净值'}</label><b class="${cls(profit?.amount)}">${fmtMoney(profit?.amount)}</b><span class="${cls(profit?.pct)}" style="display:block;font-size:12px;margin-top:2px">盈利率 ${fmtPct(profit?.pct)}</span><button class="cost-button" style="display:block;margin-top:6px" onclick="editCost('${code}',event)">${holding.shares==null?'设置持仓':`${holding.shares.toLocaleString('zh-CN')} 份 · 成本 ${holding.costNav.toFixed(4)}`}</button><div class="position-actions" style="margin-top:6px;justify-content:flex-start"><button class="cost-button" onclick="openTransaction('${code}','buy',event)">买入</button><button class="cost-button" onclick="openTransaction('${code}','sell',event)">卖出</button></div></div>`;
         const contribution=intraday
           ?(ok?`<table><thead><tr><th>股票</th><th>市场/代码</th><th>持仓</th><th>涨跌</th><th>贡献</th></tr></thead><tbody>${rows}</tbody></table>`:`<div class="note">${esc(estimate.reason||'当前无法计算盘中估值。')}</div>`)
           :'<div class="note">盘后展示基金公司公布的正式净值与正式涨跌，不再计算持仓估值。</div>';
@@ -175,7 +390,7 @@
         if(tooltip){tooltip.style.display='block';tooltip.innerHTML=`<span>${esc(point.date)}</span><b>${Number(point.unit_nav).toFixed(4)}</b><span>单日涨跌 ${fmtPct(point.daily_return_pct)}</span>`;const tooltipWidth=142;tooltip.style.left=`${Math.max(8,Math.min(w-tooltipWidth-8,xx+(xx>w*.68?-tooltipWidth-10:10)))}px`;tooltip.style.top=`${Math.max(8,yy-58)}px`}}
       else if(tooltip){tooltip.style.display='none'}
     }
-    $('addButton').addEventListener('click',()=>addFund($('fundInput').value));$('fundInput').addEventListener('keydown',e=>{if(e.key==='Enter')addFund(e.target.value)});$('exampleButton').addEventListener('click',()=>addFund('026211'));window.addEventListener('resize',()=>{if(state.detailCode)drawChart()});renderWatchlist();
+    $('addButton').addEventListener('click',submitFundInput);$('fundInput').addEventListener('input',event=>{clearTimeout(event.target.searchTimer);event.target.searchTimer=setTimeout(()=>searchFundCatalog(event.target.value),250)});$('fundInput').addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();moveFundSuggestion(1)}else if(event.key==='ArrowUp'){event.preventDefault();moveFundSuggestion(-1)}else if(event.key==='Escape')closeFundSuggestions();else if(event.key==='Enter'){event.preventDefault();const selected=state.searchResults[state.searchIndex];selected?selectFundSuggestion(selected.code):submitFundInput()}});document.addEventListener('click',event=>{if(!event.target.closest('.input-wrap'))closeFundSuggestions()});$('exampleButton').addEventListener('click',()=>addFund('026211'));$('exportButton').addEventListener('click',()=>openDataDialog('export'));$('importButton').addEventListener('click',()=>openDataDialog('import'));$('copyDataButton').addEventListener('click',copyDataText);$('mergeDataButton').addEventListener('click',()=>importData('merge'));$('replaceDataButton').addEventListener('click',()=>importData('replace'));$('dataDialog').addEventListener('click',event=>{if(event.target===$('dataDialog'))closeDataDialog()});$('positionForm').addEventListener('submit',savePosition);$('positionShares').addEventListener('input',updatePositionPreview);$('positionCostNav').addEventListener('input',updatePositionPreview);$('positionAmount').addEventListener('input',updatePositionPreview);$('positionPnl').addEventListener('input',updatePositionPreview);document.querySelectorAll('[data-position-mode]').forEach(button=>button.addEventListener('click',()=>setPositionMode(button.dataset.positionMode)));$('clearPositionButton').addEventListener('click',clearPosition);$('positionDialog').addEventListener('click',event=>{if(event.target===$('positionDialog'))closePositionDialog()});$('transactionForm').addEventListener('submit',saveTransaction);$('transactionDate').addEventListener('input',updateTransactionPreview);$('transactionAmount').addEventListener('input',updateTransactionPreview);$('transactionRatio').addEventListener('input',updateTransactionPreview);document.querySelectorAll('[data-trade-type]').forEach(button=>button.addEventListener('click',()=>setTradeType(button.dataset.tradeType)));document.querySelectorAll('[data-trade-mode]').forEach(button=>button.addEventListener('click',()=>setTradeMode(button.dataset.tradeMode)));$('transactionDialog').addEventListener('click',event=>{if(event.target===$('transactionDialog'))closeTransactionDialog()});window.addEventListener('resize',()=>{if(state.detailCode)drawChart()});renderWatchlist();
   </script>
 </body>
 </html>
