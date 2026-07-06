@@ -53,6 +53,11 @@ class WebServiceTests(unittest.TestCase):
             self.assertEqual(store.get(mine["id"])["data"]["codes"], ["026211"])
             self.assertEqual(store.get(other["id"])["data"]["codes"], ["008888"])
             self.assertEqual(len(store.list()), 2)
+            self.assertEqual([item["id"] for item in store.list()], [mine["id"], other["id"]])
+            store.reorder([other["id"], mine["id"]])
+            self.assertEqual([item["id"] for item in store.list()], [other["id"], mine["id"]])
+            with self.assertRaises(ValueError):
+                store.reorder([mine["id"]])
             self.assertTrue(store.delete(other["id"]))
             self.assertIsNone(store.get(other["id"]))
             self.assertEqual(len(store.list()), 1)

@@ -30,10 +30,19 @@ class PortfolioStore:
                 name TEXT NOT NULL COLLATE NOCASE UNIQUE,
                 data_json TEXT NOT NULL,
                 created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
+                updated_at TEXT NOT NULL,
+                sort_order INTEGER NOT NULL DEFAULT 0
             )
             """
         )
+        columns = {
+            row["name"] for row in connection.execute("PRAGMA table_info(portfolios)")
+        }
+        if "sort_order" not in columns:
+            connection.execute(
+                "ALTER TABLE portfolios ADD COLUMN sort_order INTEGER NOT NULL DEFAULT 0"
+            )
+            connection.execute("UPDATE portfolios SET sort_order = rowid")
         return connection
 
     @staticmethod
@@ -43,7 +52,7 @@ class PortfolioStore:
     def list(self) -> List[Dict[str, Any]]:
         with self._connect() as connection:
             rows = connection.execute(
-                "SELECT id, name, created_at, updated_at FROM portfolios ORDER BY name"
+                "SELECT id, name, created_at, updated_at, sort_order FROM portfolios ORDER BY sort_order, created_at"
             ).fetchall()
         return [dict(row) for row in rows]
 
@@ -55,9 +64,12 @@ class PortfolioStore:
         now = self._now()
         try:
             with self._connect() as connection:
+                next_order = connection.execute(
+                    "SELECT COALESCE(MAX(sort_order), -1) + 1 FROM portfolios"
+                ).fetchone()[0]
                 connection.execute(
-                    "INSERT INTO portfolios(id, name, data_json, created_at, updated_at) VALUES (?, ?, ?, ?, ?)",
-                    (portfolio_id, clean_name, json.dumps(data, ensure_ascii=False), now, now),
+                    "INSERT INTO portfolios(id, name, data_json, created_at, updated_at, sort_order) VALUES (?, ?, ?, ?, ?, ?)",
+                    (portfolio_id, clean_name, json.dumps(data, ensure_ascii=False), now, now, next_order),
                 )
         except sqlite3.IntegrityError as exc:
             raise PortfolioNameExistsError("分类名称已存在") from exc
@@ -93,3 +105,16 @@ class PortfolioStore:
                 "DELETE FROM portfolios WHERE id = ?", (portfolio_id,)
             )
         return bool(cursor.rowcount)
+
+    def reorder(self, portfolio_ids: List[str]) -> List[Dict[str, Any]]:
+        with self._connect() as connection:
+            existing = {
+                row["id"] for row in connection.execute("SELECT id FROM portfolios")
+            }
+            if len(portfolio_ids) != len(set(portfolio_ids)) or set(portfolio_ids) != existing:
+                raise ValueError("分类顺序必须包含全部分类且不能重复")
+            connection.executemany(
+                "UPDATE portfolios SET sort_order = ? WHERE id = ?",
+                [(index, portfolio_id) for index, portfolio_id in enumerate(portfolio_ids)],
+            )
+        return self.list()

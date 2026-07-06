@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 import requests
 from fastapi import FastAPI, HTTPException
@@ -24,6 +24,10 @@ portfolio_store = PortfolioStore(DATA_DIR / "funding-rader.db")
 class PortfolioCreate(BaseModel):
     name: str
     data: Dict[str, Any]
+
+
+class PortfolioOrder(BaseModel):
+    ids: List[str]
 
 
 def validate_portfolio_data(data: Dict[str, Any]) -> None:
@@ -71,6 +75,14 @@ def create_portfolio(payload: PortfolioCreate) -> Dict[str, Any]:
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
+
+@app.post("/api/portfolios/reorder")
+def reorder_portfolios(payload: PortfolioOrder) -> Dict[str, Any]:
+    try:
+        items = portfolio_store.reorder(payload.ids)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {"count": len(items), "items": items}
 
 @app.get("/api/portfolios/{portfolio_id}")
 def get_portfolio(portfolio_id: str) -> Dict[str, Any]:
